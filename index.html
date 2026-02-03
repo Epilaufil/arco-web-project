@@ -6,110 +6,135 @@
     <title>Epilaufil | Refonte</title>
     <style>
         :root {
-            --primary: #2d3436;
-            --accent: #0984e3;
-            --bg: #f5f6fa;
+            /* Palette Epilaufil */
+            --violet-menu: #6c5ce7; /* Violet vibrant */
+            --rose-fond: #ffdef2;   /* Rose bonbon clair */
+            --white: #ffffff;
+            --text-dark: #2d3436;
         }
+
+        * { box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            background-color: var(--bg);
-            color: var(--primary);
+            background-color: var(--rose-fond);
+            color: var(--text-dark);
+            line-height: 1.6;
         }
 
-        /* Barre de menu persistante */
+        /* Barre de navigation Violette */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: var(--violet-menu);
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
             z-index: 1000;
             display: flex;
-            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        nav a {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: bold;
+        .logo { 
+            font-weight: 800; 
+            color: var(--white); 
+            text-decoration: none; 
+            font-size: 1.2rem;
         }
 
-        /* Conteneur des briques */
-        .container {
-            margin-top: 80px;
-            padding: 2rem;
+        .nav-links { display: flex; gap: 15px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: rgba(255,255,255,0.9); 
+            font-size: 0.9rem; 
+            font-weight: 500;
+        }
+
+        /* Conteneur principal */
+        .main-content {
+            margin-top: 100px; /* Plus d'espace pour le menu */
+            padding: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4rem;
+            gap: 20px;
         }
 
-        /* Style d'une "Brique" */
+        /* Les Briques blanches sur fond rose */
         .brique {
-            width: 80%;
-            max-width: 800px;
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 500px;
+            background: var(--white);
+            border-radius: 20px; /* Bords plus arrondis pour le côté doux */
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
             
-            /* État initial pour l'animation */
+            /* Animation d'apparition */
             opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.6s ease-out;
+            transform: translateY(40px);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* Classe ajoutée lors du scroll */
         .brique.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        section { min-height: 60vh; }
+        h2 { 
+            color: var(--violet-menu); 
+            margin-top: 0; 
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--rose-fond);
+            padding-bottom: 8px;
+        }
+
+        .placeholder-box {
+            border: 2px dashed var(--rose-fond);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            color: #b2bec3;
+            background-color: #fff9fc;
+        }
+
+        /* Adaptation Smartphone */
+        @media (max-width: 480px) {
+            .nav-links a { font-size: 0.8rem; }
+            .brique { padding: 20px; width: 95%; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#accueil">Accueil</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+        <a href="#" class="logo">EPILAUFIL</a>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
     </nav>
 
-    <div class="container">
-        <section id="accueil" class="brique">
-            <h1>Bienvenue sur Epilaufil</h1>
-            <p>La refonte de votre identité numérique commence ici.</p>
+    <div class="main-content">
+        <section class="brique">
+            <h2>Bienvenue</h2>
+            <p>Votre espace beauté et bien-être se refait une beauté numérique.</p>
         </section>
 
         <section id="services" class="brique">
-            <h2>Mes Services</h2>
-            <p>Développement, Design et Stratégie.</p>
+            <h2>Nos Rubriques</h2>
+            <div class="placeholder-box">Contenu Services</div>
         </section>
 
         <section id="contact" class="brique">
-            <h2>Contact</h2>
-            <p>Prêt à lancer votre projet ?</p>
-            </section>
+            <h2>Prise de rendez-vous</h2>
+            <p>Bientôt, votre calendrier Calendly ici pour réserver en 2 clics.</p>
+            <div class="placeholder-box">[ Emplacement Calendly ]</div>
+        </section>
     </div>
 
     <script>
-        // Script pour l'apparition au scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.brique').forEach(brique => {
-            observer.observe(brique);
-        });
-    </script>
-</body>
-</html>
+                if (entry.isIntersect
