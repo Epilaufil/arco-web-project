@@ -3,34 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epilaufil | Refonte</title>
+    <title>Epilaufil | Beauté du Regard & Soins</title>
     <style>
         :root {
             /* Palette Epilaufil */
-            --violet-menu: #6c5ce7; /* Violet vibrant */
-            --rose-fond: #ffdef2;   /* Rose bonbon clair */
+            --violet: #6c5ce7; /* Violet vibrant */
+            --rose-bonbon: #ffdef2;   /* Rose bonbon clair */
+            --rose-fonce: #f8a5c2;
             --white: #ffffff;
-            --text-dark: #2d3436;
+            --dark: #2d3436;
         }
 
         * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
-            background-color: var(--rose-fond);
-            color: var(--text-dark);
-            line-height: 1.6;
+            background-color: var(--rose-bonbon);
+            color: var(--dark);
+            /*line-height: 1.6;*/
         }
 
-        /* Barre de navigation Violette */
+        /* Menu Persistant */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: var(--violet-menu);
+            background: var(--violet);
             padding: 1rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
@@ -38,43 +40,44 @@
         }
 
         .logo { 
-            font-weight: 800; 
+            font-weight: bold; 
             color: var(--white); 
             text-decoration: none; 
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
         }
 
-        .nav-links { display: flex; gap: 15px; }
+        /*.nav-links { display: flex; gap: 15px; }*/
         .nav-links a { 
             text-decoration: none; 
-            color: rgba(255,255,255,0.9); 
+            color: var(--white); 
             font-size: 0.9rem; 
-            font-weight: 500;
+            margin-left: 15px;
+            text-transform: uppercase;
         }
 
-        /* Conteneur principal */
-        .main-content {
-            margin-top: 100px; /* Plus d'espace pour le menu */
+        /* Conteneur */
+        .container {
+            margin-top: 100px;
             padding: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
+            padding-bottom: 50px;
         }
 
-        /* Les Briques blanches sur fond rose */
+        /* Les Briques */
         .brique {
             width: 100%;
-            max-width: 500px;
+            max-width: 550px;
             background: var(--white);
-            border-radius: 20px; /* Bords plus arrondis pour le côté doux */
-            padding: 25px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            
-            /* Animation d'apparition */
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             opacity: 0;
             transform: translateY(40px);
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         .brique.visible {
@@ -82,27 +85,30 @@
             transform: translateY(0);
         }
 
-        h2 { 
-            color: var(--violet-menu); 
-            margin-top: 0; 
-            font-size: 1.3rem;
-            border-bottom: 2px solid var(--rose-fond);
-            padding-bottom: 8px;
-        }
+        h1, h2 { color: var(--violet); margin-top: 0; }
+        h2 { font-size: 1.5rem; border-bottom: 2px solid var(--rose-bonbon); padding-bottom: 10px; }
+        
+        .highlight { color: var(--rose-fonce); font-weight: bold; }
 
-        .placeholder-box {
-            border: 2px dashed var(--rose-fond);
-            border-radius: 12px;
-            padding: 30px;
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--violet);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
             text-align: center;
-            color: #b2bec3;
-            background-color: #fff9fc;
         }
 
-        /* Adaptation Smartphone */
+        /* Mobile */
         @media (max-width: 480px) {
-            .nav-links a { font-size: 0.8rem; }
-            .brique { padding: 20px; width: 95%; }
+            .logo { font-size: 1.1rem; }
+            .brique { padding: 20px; }
         }
     </style>
 </head>
@@ -111,30 +117,58 @@
     <nav>
         <a href="#" class="logo">EPILAUFIL</a>
         <div class="nav-links">
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <a href="#expert">Expertise</a>
+            <a href="#tarifs">Tarifs</a>
+            <a href="#rdv">RDV</a>
         </div>
     </nav>
 
-    <div class="main-content">
-        <section class="brique">
-            <h2>Bienvenue</h2>
-            <p>Votre espace beauté et bien-être se refait une beauté numérique.</p>
+    <div class="container">
+        <section id="accueil" class="brique">
+            <h1>L'art de l'épilation au fil</h1>
+            <p>Spécialiste de la <span class="highlight">beauté du regard</span>, je vous propose une technique ancestrale, naturelle et précise pour sublimer vos sourcils et votre visage.</p>
         </section>
 
-        <section id="services" class="brique">
-            <h2>Nos Rubriques</h2>
-            <div class="placeholder-box">Contenu Services</div>
+        <section id="expert" class="brique">
+            <h2>Pourquoi le fil ?</h2>
+            <ul>
+                <li><strong>Précision extrême :</strong> Dessine une ligne de sourcils parfaite.</li>
+                <li><strong>100% Naturel :</strong> Aucun produit chimique, idéal pour les peaux sensibles.</li>
+                <li><strong>Hygiène :</strong> Un fil neuf à chaque séance.</li>
+                <li><strong>Efficacité :</strong> Arrache le poil à la racine, même les plus fins.</li>
+            </ul>
         </section>
 
-        <section id="contact" class="brique">
-            <h2>Prise de rendez-vous</h2>
-            <p>Bientôt, votre calendrier Calendly ici pour réserver en 2 clics.</p>
-            <div class="placeholder-box">[ Emplacement Calendly ]</div>
+        <section id="tarifs" class="brique">
+            <h2>Nos Prestations</h2>
+            <p>Retrouvez mes soins phares directement issus de mon expertise :</p>
+            <ul>
+                <li>Épilation Sourcils / Lèvres / Visage complet</li>
+                <li>Teinture de sourcils & Henné végétal</li>
+                <li>Soins du visage relaxants</li>
+            </ul>
+            <p><em>Travail soigné à domicile ou en institut partenaire.</em></p>
+        </section>
+
+        <section id="rdv" class="brique">
+            <h2>Prendre Rendez-vous</h2>
+            <p>Réservez votre instant beauté en ligne. Simple, rapide et disponible 24h/24.</p>
+            <div style="text-align: center;">
+                <a href="#calendly-link" class="cta-button">Accéder au calendrier</a>
+            </div>
         </section>
     </div>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersect
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.brique').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
