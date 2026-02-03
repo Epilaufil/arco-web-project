@@ -85,6 +85,25 @@
             transform: translateY(0);
         }
 
+        /* Animation de chaque lettre */
+        .qodef-e-character {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 400ms ease-out;
+        }
+
+        /* Quand la brique devient visible, on anime les lettres */
+        .brique.visible .qodef-e-character {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* On centre les titres pour un look plus "esthétique" */
+        h2 {
+            overflow: hidden; /* Pour éviter que les lettres ne dépassent pendant l'animation */
+        }
+
         h1, h2 { color: var(--violet); margin-top: 0; }
         h2 { font-size: 1.5rem; border-bottom: 2px solid var(--rose-bonbon); padding-bottom: 10px; }
         
@@ -168,7 +187,36 @@
             });
         }, { threshold: 0.15 });
 
-        document.querySelectorAll('.brique').forEach(el => observer.observe(el));
-    </script>
+        document.addEventListener("DOMContentLoaded", () => {
+    // 1. Découpage des titres en lettres
+    const titles = document.querySelectorAll('.brique h2');
+    
+    titles.forEach(title => {
+        const text = title.textContent;
+        title.textContent = ''; // On vide le titre
+        
+        [...text].forEach((char, index) => {
+            const span = document.createElement('span');
+            span.classList.add('qodef-e-character');
+            // On ajoute un délai progressif (60ms entre chaque lettre)
+            span.style.transitionDelay = `${index * 60}ms`;
+            span.textContent = char === ' ' ? '\u00A0' : char; // Gère les espaces
+            title.appendChild(span);
+        });
+    });
+
+    // 2. Gestion du scroll (Intersection Observer)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.brique').forEach(brique => {
+        observer.observe(brique);
+    });
+});   </script>
 </body>
 </html>
