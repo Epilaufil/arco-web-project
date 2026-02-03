@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epilaufil | Refonte</title>
+    <style>
+        :root {
+            --primary: #2d3436;
+            --accent: #0984e3;
+            --bg: #f5f6fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--primary);
+        }
+
+        /* Barre de menu persistante */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Conteneur des briques */
+        .container {
+            margin-top: 80px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        /* Style d'une "Brique" */
+        .brique {
+            width: 80%;
+            max-width: 800px;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            
+            /* État initial pour l'animation */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+
+        /* Classe ajoutée lors du scroll */
+        .brique.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section { min-height: 60vh; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="accueil" class="brique">
+            <h1>Bienvenue sur Epilaufil</h1>
+            <p>La refonte de votre identité numérique commence ici.</p>
+        </section>
+
+        <section id="services" class="brique">
+            <h2>Mes Services</h2>
+            <p>Développement, Design et Stratégie.</p>
+        </section>
+
+        <section id="contact" class="brique">
+            <h2>Contact</h2>
+            <p>Prêt à lancer votre projet ?</p>
+            </section>
+    </div>
+
+    <script>
+        // Script pour l'apparition au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.brique').forEach(brique => {
+            observer.observe(brique);
+        });
+    </script>
+</body>
+</html>
