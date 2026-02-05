@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Epilaufil | L'épilation au fil à Issy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --violet: #6c5ce7;
@@ -11,156 +13,172 @@
             --rose-fonce: #f8a5c2;
             --white: #ffffff;
             --dark: #2d3436;
+            --glass: rgba(255, 255, 255, 0.7);
         }
 
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
-            background-color: #fff9fc; /* Fond très clair pour laisser respirer les blobs */
+            background-color: #fffafd;
             color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        /* --- BACKGROUND ANIME --- */
+        /* --- BACKGROUND VAPOREUX --- */
         .glass-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            filter: blur(100px); /* Augmenté pour plus de douceur */
-            overflow: hidden;
+            filter: blur(100px);
         }
 
         .blob {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.5;
             animation: float 20s infinite alternate ease-in-out;
+            opacity: 0.6;
         }
 
-        .pink {
-            width: 500px; height: 500px;
-            background: var(--rose-bonbon);
-            top: -10%; left: -10%;
-        }
-
-        .purple {
-            width: 600px; height: 600px;
-            background: var(--violet);
-            bottom: -10%; right: -10%;
-            animation-duration: 25s;
-            animation-delay: -5s;
-        }
-
-        .light {
-            width: 400px; height: 400px;
-            background: #ffffff;
-            top: 30%; left: 20%;
-            animation-duration: 18s;
-        }
+        .pink { width: 400px; height: 400px; background: var(--rose-bonbon); top: -100px; left: -100px; }
+        .purple { width: 500px; height: 500px; background: var(--violet); bottom: -150px; right: -100px; animation-delay: -5s; }
+        .light { width: 300px; height: 300px; background: #fff; top: 40%; left: 30%; animation-duration: 15s; }
 
         @keyframes float {
             0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(40px, 60px) scale(1.1); }
-            100% { transform: translate(-20px, -20px) scale(1); }
+            100% { transform: translate(40px, -40px) scale(1.1); }
         }
 
         /* --- NAVIGATION --- */
         nav {
-            position: fixed;
-            top: 0; width: 100%;
-            background: var(--violet);
-            padding: 1rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--rose-bonbon);
         }
 
         .logo { 
-            font-weight: bold; 
-            color: var(--white); 
-            text-decoration: none; 
-            font-size: 1.4rem;
-            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold; color: var(--violet); 
+            text-decoration: none; font-size: 1.5rem; letter-spacing: 1px;
         }
 
         .nav-links a { 
-            text-decoration: none; 
-            color: var(--white); 
-            font-size: 0.8rem; 
-            margin-left: 15px;
-            text-transform: uppercase;
-            font-weight: bold;
+            text-decoration: none; color: var(--dark); 
+            font-size: 0.8rem; font-weight: 600; margin-left: 20px;
+            text-transform: uppercase; transition: color 0.3s;
         }
+        .nav-links a:hover { color: var(--violet); }
 
-        /* --- CONTENU --- */
+        /* --- CONTAINER & GRID RESPONSIVE --- */
         .container {
             margin-top: 120px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-            padding-bottom: 80px;
+            padding: 20px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
+        /* --- RENDU DES BRIQUES --- */
         .brique {
-            width: 100%;
-            max-width: 550px;
-            background: rgba(255, 255, 255, 0.8); /* Semi-transparent pour l'effet glass */
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .brique.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .brique.visible { opacity: 1; transform: translateY(0); }
+
+        .brique:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.9);
+            border-color: var(--rose-fonce);
+            box-shadow: 0 15px 35px rgba(108, 92, 231, 0.1);
         }
 
-        /* --- TYPOGRAPHIE --- */
-        h1, h2 { color: var(--violet); margin-top: 0; }
-        
+        /* --- LES PAILLETTES AU SURVOL --- */
+        .brique::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle, #fff 1.5px, transparent 1.5px),
+                radial-gradient(circle, #fff 1px, transparent 1px);
+            background-size: 25px 25px;
+            background-position: 0 0, 12px 12px;
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .brique:hover::after {
+            opacity: 0.5;
+            animation: sparkleShift 3s infinite linear;
+        }
+
+        @keyframes sparkleShift {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-25px); }
+        }
+
+        /* --- TYPO ET HIGHLIGHT --- */
+        h1, h2 { font-family: 'Playfair Display', serif; color: var(--violet); margin-top: 0; }
+        h1 { grid-column: 1 / -1; text-align: center; font-size: 2.5rem; margin-bottom: 20px; }
+        h2 { font-size: 1.7rem; margin-bottom: 15px; }
+
+        .highlight { 
+            color: #d63384; 
+            font-weight: 600;
+            background: linear-gradient(to bottom, transparent 65%, var(--rose-bonbon) 65%);
+            padding: 0 2px;
+        }
+
         .qodef-e-character {
             display: inline-block;
             opacity: 0;
-            transform: translateY(15px);
-            transition: all 500ms ease-out;
+            transform: translateY(10px);
+            transition: all 400ms ease-out;
         }
 
-        .visible .qodef-e-character {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .brique.visible .qodef-e-character { opacity: 1; transform: translateY(0); }
 
-        .highlight { color: #d63384; font-weight: bold; }
-        
+        .brique * { position: relative; z-index: 2; } /* Pour rester au dessus des paillettes */
+
         .cta-button {
             display: inline-block;
             background: var(--violet);
             color: white;
-            padding: 15px 35px;
+            padding: 14px 30px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: transform 0.3s ease;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
         }
+        .cta-button:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4); }
 
-        .cta-button:hover { transform: scale(1.05); }
-
-        @media (max-width: 480px) {
-            .logo { font-size: 1.1rem; }
-            .nav-links a { font-size: 0.7rem; margin-left: 8px; }
-            .brique { padding: 25px; }
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .container { grid-template-columns: 1fr; margin-top: 100px; }
+            h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -182,44 +200,47 @@
     </nav>
 
     <div class="container">
+        <h1>L'art de l'épilation au fil</h1>
+
         <section id="accueil" class="brique">
-            <h1>L'art de l'épilation au fil</h1>
-            <p>Spécialiste de la <span class="highlight">beauté du regard</span>, je vous propose une technique ancestrale, naturelle et précise pour sublimer vos sourcils et votre visage.</p>
+            <h2>Bienvenue</h2>
+            <p>Epilaufil vous propose une épilation du visage au fil. Utilisée depuis des générations, cette technique ancestrale est 100% naturelle, rapide et sans risque d’allergie.</p>
+            <p>Spécialiste de la <span class="highlight">beauté du regard</span>, je sublime vos sourcils avec une précision millimétrée.</p>
         </section>
 
         <section id="expert" class="brique">
             <h2>Pourquoi le fil ?</h2>
             <ul>
-                <li><strong>Précision extrême :</strong> Dessine une ligne de sourcils parfaite.</li>
-                <li><strong>100% Naturel :</strong> Aucun produit chimique.</li>
+                <li><strong>Précision extrême :</strong> Une ligne parfaite.</li>
+                <li><strong>Peaux sensibles :</strong> Aucun produit chimique.</li>
                 <li><strong>Hygiène :</strong> Un fil neuf à chaque séance.</li>
-                <li><strong>Efficacité :</strong> Arrache le poil à la racine.</li>
+                <li><strong>Efficacité :</strong> Arrache même les poils fins.</li>
             </ul>
         </section>
 
         <section id="tarifs" class="brique">
             <h2>Nos Prestations</h2>
-            <p>Retrouvez mes soins phares :</p>
             <ul>
-                <li>Épilation Sourcils / Lèvres / Visage complet</li>
+                <li>Épilation Sourcils / Lèvres / Visage</li>
                 <li>Teinture de sourcils & Henné végétal</li>
                 <li>Soins du visage relaxants</li>
             </ul>
+            <p><em>À domicile ou en institut partenaire.</em></p>
         </section>
 
         <section id="rdv" class="brique">
             <h2>Prendre Rendez-vous</h2>
-            <p>Réservez votre instant beauté en ligne 24h/24.</p>
+            <p>Réservez votre instant beauté en ligne. Simple, rapide et disponible 24h/24.</p>
             <div style="text-align: center;">
-                <a href="#" class="cta-button">Accéder au calendrier</a>
+                <a href="#calendly-link" class="cta-button">Accéder au calendrier</a>
             </div>
         </section>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // 1. Préparation des lettres pour l'animation
-            const titles = document.querySelectorAll('.brique h2, .brique h1');
+            // 1. Animation des titres
+            const titles = document.querySelectorAll('.brique h2');
             titles.forEach(title => {
                 const text = title.textContent;
                 title.textContent = ''; 
@@ -232,17 +253,17 @@
                 });
             });
 
-            // 2. Observer unique pour les briques
-            const observer = new IntersectionObserver((entries) => {
+            // 2. Observer pour l'apparition des briques
+            const briqueObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
-            }, { threshold: 0.2 });
+            }, { threshold: 0.15 });
 
             document.querySelectorAll('.brique').forEach(brique => {
-                observer.observe(brique);
+                briqueObserver.observe(brique);
             });
         });
     </script>
