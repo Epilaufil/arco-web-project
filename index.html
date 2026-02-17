@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epilaufil | L'épilation au fil à Issy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <title>Épilation au fil à Issy-les-Moulineaux | Sourcils & Beauté du regard | Epilaufil</title>
+    <meta name="description" content="Épilation au fil à Issy-les-Moulineaux. Spécialiste des sourcils et de la beauté du regard. Technique naturelle, précise et sans produit chimique. Prenez rendez-vous chez Epilaufil.">
+
     
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/webp" href="img/favIcon.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+
     <style>
         :root {
             --violet: #6c5ce7;
@@ -60,7 +65,7 @@
 
 .nav-content {
     position: relative;
-    z-index: 10; /* Doit être au-dessus du container vidéo */
+    z-index: 10; 
     width: 100%;
     padding: 0 5%;
     display: flex;
@@ -69,9 +74,19 @@
 }
 
 /* Style du Logo et des Liens en Rose */
+.logo {
+  display: flex;
+  flex-direction: column;   /* force 2 lignes */
+  justify-content: center;
+  line-height: 1.1;   
+}
+.logo .slogan {
+  font-size: 0.75em;   /* 45% de la taille du logo */
+  white-space: nowrap;
+}
 .logo a, .nav-links a { 
     text-decoration: none; 
-    color: var(--rose-bonbon) !important; /* On force ton rose fonce pour la visibilité */
+    color: var(--rose-bonbon) !important; /* On force le rose fonce pour la visibilité */
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
@@ -79,7 +94,7 @@
     transition: opacity 0.3s;
 }
 
-.logo a { font-size: 1.5rem; }
+.logo a { font-size: clamp(22px, 3vw, 42px); }
 .nav-links a { font-size: 0.9rem; margin-left: 20px; }
 
 .logo a:hover, .nav-links a:hover {
@@ -243,6 +258,36 @@
     font-weight: bold;
     letter-spacing: 2px;
 }
+/* Animation sous-titre menu */
+.text-aesthetic {
+  font-size: clamp(12px, 3vw, 28px);
+  font-weight: 700;
+  text-align: center;
+
+  background: linear-gradient(
+    90deg,
+    #ff00cc,
+    #ff4fd8,
+    #ffffff,
+    #ff99f5,
+    #ff00cc
+  );
+
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  animation: shineText 4s linear infinite;
+}
+
+@keyframes shineText {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
 
 
 .avant { background-image: url('img/BandeReconstructAvant.webp'); }
@@ -271,6 +316,53 @@
             .nav-links { display: none; }
             .container { grid-template-columns: 1fr; margin-top: 100px; }
         }
+
+        .image-wrapper {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-transparent {
+            max-width: 80%;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+            transition: transform 0.4s ease;
+        }
+
+        .image-transparent:hover {
+            transform: scale(1.03);
+        }
+
+        .tarif-list {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tarif-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 20px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(5px);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tarif-item:hover {
+            background: white;
+            transform: translateX(5px);
+            border-left: 3px solid var(--violet);
+        }
+        .tarif-description {
+            font-size: 0.8rem;
+            font-weight: 400;
+            font-style: italic;
+            opacity: 0.8;
+            margin: 0;
+        }
+
     </style>
 </head>
 <body>
@@ -283,7 +375,10 @@
   </div>
   
   <div class="nav-content">
-    <div class="logo"><a href="#">EPILAUFIL</a></div>
+    <div class="logo">
+        <a href="#">EPILAUFIL</a>
+        <span class="text-aesthetic slogan">L'épilation au fil à Issy</span>
+    </div>
     <div class="nav-links">
       <a href="#expert">Expertise</a>
       <a href="#tarifs">Tarifs</a>
@@ -308,12 +403,14 @@
     </nav> -->
 
     <div class="container">
-        <h1>L'art de l'épilation au fil</h1>
+        <h1>Épilation au fil à Issy-les-Moulineaux – Beauté du regard & Sourcils parfaits</h1>
 
         <section id="accueil" class="brique">
             <h2>Bienvenue</h2>
-            <p>Epilaufil vous propose une épilation du visage <span class="highlight">au fil</span>. Cette technique ancestrale est 100% naturelle et précise.</p>
-            <p>Spécialiste de la <span class="highlight">beauté du regard</span>, je sublime vos sourcils.</p>
+            <p>Epilaufil vous propose une épilation du visage <span class="highlight">au fil</span>. Cette technique ancestrale est 100% naturelle, rapide, précise et sans risque d'allergie.</p>
+            <p>Spécialiste de la <span class="highlight">beauté du regard</span>, Epilaufil sublime vos sourcils.</p>
+            <p>Situé à Issy-les-Moulineaux, Epilaufil est spécialisé dans l'épilation au fil du visage et la restructuration des sourcils pour sublimer naturellement votre regard.</p>
+
         </section>
 
         <section id="expert" class="brique">
@@ -321,7 +418,7 @@
             <ul>
                 <li><strong>Précision :</strong> Une ligne parfaite.</li>
                 <li><strong>Naturel :</strong> Aucun produit chimique.</li>
-                <li><strong>Hygiène :</strong> Fil neuf à chaque fois.</li>
+                
             </ul>
         </section>
 
@@ -346,19 +443,53 @@
             </div>
         </section>
 
-        <section id="tarifs" class="brique">
-            <h2>Nos Prestations</h2>
-            <ul>
-                <li>Épilation par zone</li>
-                <li>Coloration sourcils</li>
-                <li>Soin du visage</li>
-            </ul>
+        <section id="nettoyage" class="brique">
+            <h2>Nettoyage</h2>
+            <div class="image-wrapper">
+                <img src="img/NettoyageA.webp" alt="Nettoyage Epilaufil" class="image-transparent">
+            </div>
         </section>
+
+
+        <section id="tarifs" class="brique">
+            <h2>Tarifs Épilation au Fil</h2>
+
+            <div class="tarif-list">
+                <div class="tarif-item">
+                <div><span>Nettoyage</span>
+                        <p class="tarif-description">Prix par zone</p>
+                    </div>
+                    <span>5€</span>
+                </div>
+
+                <div class="tarif-item">
+                <span>Coloration</span>
+                <span>7€</span>
+                </div>
+
+                <div class="tarif-item">
+                <div><span>Visage</span>
+                     <p class="tarif-description">Prix forfaitaire, ne comprend pas de coloration ni de construction.</p>
+                    </div>
+                <span>25€</span>
+                </div>
+
+                <div class="tarif-item">
+                <span>Restructuration sourcils</span>
+                <span>20€</span>
+                </div>
+            </div>
+            </section>
 
         <section id="rdv" class="brique">
             <h2>Prendre Rendez-vous</h2>
             <div style="text-align: center;">
-                <a href="https://wa.me/33758339907?text=Bonjour%20!%20Je%20suis%20interess%C3%A9e%20par%20vos%20services%20!" class="cta-button">Accéder au calendrier</a>
+                <a href="#" class="cta-button">Accéder au calendrier</a>
+            </div>
+
+            <h2>Contact whatsapp</h2>
+            <div style="text-align: center;">
+                <a href="https://wa.me/33758339907?text=Bonjour%20!%20Je%20suis%20interess%C3%A9e%20par%20vos%20services%20!" class="cta-button">Contactez-moi sur whatsapp</a>
             </div>
         </section>
     </div>
