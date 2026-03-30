@@ -189,3 +189,64 @@ h2 { font-family:'Playfair Display', serif; color:var(--violet); font-size:1.6re
     overflow: hidden;
     animation: fadeIn 0.3s ease-out;
 }
+/* En-tête de la fenêtre */
+#wa-chat div:first-child {
+    background: var(--violet);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Corps du message */
+#wa-chat div:nth-child(2) {
+    padding: 20px;
+    color: var(--dark);
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Bouton dans la fenêtre */
+#wa-chat a {
+    display: block;
+    background: var(--rose-fonce);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    margin: 0 20px 20px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+#wa-chat a:hover {
+    background: var(--violet);
+}
+
+/* Le bouton rond avec l'émoji */
+#wa-box div[onclick] {
+    width: 60px;
+    height: 60px;
+    background: var(--violet);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+    font-size: 28px;
+    transition: transform 0.3s ease;
+}
+
+#wa-box div[onclick]:hover {
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
