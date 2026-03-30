@@ -235,18 +235,37 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Calendly lazy load
 function loadCalendly(){
-  if(!window.CalendlyLoaded){
+ const btn = event.currentTarget;
+  const originalText = btn.innerText;
+  if (btn.innerText === "Chargement...") return;
+  btn.innerText = "Chargement...";
+
+// Fonction pour ouvrir le popup et remettre le texte du bouton
+  const openWidget = () => {
+    btn.innerText = originalText;
+    Calendly.initPopupWidget({
+      url: 'https://calendly.com/epilaufil/nettoyage-des-sourcils'
+    });
+  };
+
+  if (!window.CalendlyLoaded) {
+    // Chargement du CSS
     const link = document.createElement('link');
-    link.rel='stylesheet'; link.href='https://assets.calendly.com/assets/external/widget.css';
+    link.rel = 'stylesheet';
+    link.href = 'https://assets.calendly.com/assets/external/widget.css';
     document.head.appendChild(link);
+
+    // Chargement du JS
     const script = document.createElement('script');
-    script.src='https://assets.calendly.com/assets/external/widget.js';
-    script.async=true;
-    script.onload=function(){ Calendly.initPopupWidget({url:'https://calendly.com/epilaufil/nettoyage-des-sourcils'}); }
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    script.onload = () => {
+      window.CalendlyLoaded = true;
+      openWidget();
+    };
     document.body.appendChild(script);
-    window.CalendlyLoaded = true;
   } else {
-    Calendly.initPopupWidget({url:'https://calendly.com/epilaufil/epilation-du-visage'});
+    openWidget();
   }
 }
 </script>
