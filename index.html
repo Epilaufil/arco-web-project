@@ -157,7 +157,7 @@
   <section id="rdv" class="brique">
     <h2>Rendez-vous</h2>
     <div style="text-align:center;">
-      <a href="#" onclick="loadCalendly();return false;" class="cta-button">Prendre Rendez-vous</a>
+      <a href="javascript:void(0);" onclick="loadCalendly()" class="cta-button">Prendre Rendez-vous</a>
     </div>
   </section>
 
@@ -246,73 +246,10 @@ function loadCalendly(){
     document.body.appendChild(script);
     window.CalendlyLoaded = true;
   } else {
-    Calendly.initPopupWidget({url:'https://calendly.com/epilaufil/nettoyage-des-sourcils'});
+    Calendly.initPopupWidget({url:'https://calendly.com/epilaufil/epilation-du-visage'});
   }
 }
 </script>
-
-
-
-
-<!-- <section id="contact" class="brique">
-    <h2>Me Contacter</h2>
-    <p>Une question sur la restructuration ou besoin d'un diagnostic ?</p>
-    
-    <div class="contact-grid" style="display: grid; gap: 20px; margin-top: 30px;">
-       
-        <a href="https://wa.me/33758339907" class="cta-button" style="background: #25D366; text-align: center;">
-            Ouvrir WhatsApp
-        </a>
-</div>
-
-        <hr style="border: 0; border-top: 1px solid var(--glass-border); margin: 10px 0;">
-<script>
-    // Script pour déclencher l'animation d'apparition des éléments
-    document.addEventListener("DOMContentLoaded", function() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
-            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-            
-            <div style="margin-bottom: 15px;">
-                <input type="text" name="name" placeholder="Votre nom" required 
-                    style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.5);">
-            </div>
-            
-            <div style="margin-bottom: 15px;">
-                <input type="email" name="email" placeholder="Votre email" required 
-                    style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.5);">
-            </div>
-        document.querySelectorAll('.brique').forEach(brique => {
-            observer.observe(brique);
-        });
-    });
-</script>
-
-            <div style="margin-bottom: 15px;">
-                <textarea name="message" placeholder="Votre message..." rows="4" required 
-                    style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.5); font-family: inherit;"></textarea>
-            </div>
-
-            <button type="submit" class="cta-button" style="width: 100%; border: none; cursor: pointer;">
-                Envoyer le message
-            </button>
-        
-    </div>
-        
-</section>
-
-
-
-</div>
- -->
-
    
 </body>
 </html>
