@@ -157,7 +157,7 @@
   <section id="rdv" class="brique">
     <h2>Rendez-vous</h2>
     <div style="text-align:center;">
-      <a href="javascript:void(0);" onclick="loadCalendly()" class="cta-button">Prendre Rendez-vous</a>
+      <a href="javascript:void(0);" onclick="loadCalendly(event)" class="cta-button">Prendre Rendez-vous</a>
     </div>
   </section>
 
@@ -234,31 +234,31 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Calendly lazy load
-function loadCalendly(){
- const btn = event.currentTarget;
-  const originalText = btn.innerText;
-  if (btn.innerText === "Chargement...") return;
-  btn.innerText = "Chargement...";
+function loadCalendly(e){
+  const btn = e.currentTarget;
+  
+  // On évite les clics multiples
+  if(btn.style.opacity === "0.5") return;
+  btn.style.opacity = "0.5";
+  btn.style.cursor = "wait";
 
-// Fonction pour ouvrir le popup et remettre le texte du bouton
   const openWidget = () => {
-    btn.innerText = originalText;
+    btn.style.opacity = "1";
+    btn.style.cursor = "pointer";
     Calendly.initPopupWidget({
       url: 'https://calendly.com/epilaufil/epilation-du-visage'
     });
   };
 
-  if (!window.CalendlyLoaded) {
-    // Chargement du CSS
+  if(!window.CalendlyLoaded){
     const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://assets.calendly.com/assets/external/widget.css';
+    link.rel='stylesheet'; 
+    link.href='https://assets.calendly.com/assets/external/widget.css';
     document.head.appendChild(link);
 
-    // Chargement du JS
     const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
+    script.src='https://assets.calendly.com/assets/external/widget.js';
+    script.async=true;
     script.onload = () => {
       window.CalendlyLoaded = true;
       openWidget();
