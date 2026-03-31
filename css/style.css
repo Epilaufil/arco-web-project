@@ -250,3 +250,137 @@ h2 { font-family:'Playfair Display', serif; color:var(--violet); font-size:1.6re
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* --- SPECIFIQUE CONTACT LARGE --- */
+.brique-large {
+    grid-column: 1 / -1; /* Force la brique à prendre toute la largeur de la grille */
+    max-width: 100%;
+}
+
+.contact-wrapper {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.contact-action-box {
+    flex: 1;
+    text-align: center;
+}
+
+.tally-wrapper {
+    flex: 2; /* Donne plus de place au formulaire qu'au bouton WA */
+    min-height: 450px;
+}
+
+.wa-btn {
+    background: #25D366 !important;
+    width: 100%;
+    max-width: 300px;
+}
+
+.separateur-vertical {
+    display: flex;
+    align-items: center;
+    color: var(--rose-fonce);
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.separateur-vertical::before, .separateur-vertical::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rose-bonbon);
+    margin: 0 15px;
+    min-width: 50px;
+}
+
+/* --- ADAPTATION MOBILE --- */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+    .separateur-vertical {
+        width: 100%;
+        margin: 20px 0;
+    }
+    .separateur-vertical::before, .separateur-vertical::after {
+        min-width: 20px;
+    }
+    .tally-wrapper {
+        width: 100%;
+    }
+}
+/* --- FOOTER --- */
+.site-footer {
+    background-color: var(--violet); /* Ta couleur de référence */
+    padding: 60px 20px 110px 20px; /* Espace pour le bouton WhatsApp */
+    text-align: center;
+    margin-top: 80px;
+    border-top: 1px solid var(--rose-bonbon);
+    position: relative;
+    z-index: 10;
+}
+
+.footer-logo {
+    margin-bottom: 10px;
+}
+
+.footer-logo .text-aesthetic {
+    font-family: 'Playfair Display', serif; /* Même police que le H1/H2 et Header */
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.site-footer p {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-links a {
+    font-family: 'Montserrat', sans-serif; /* Même police que la Nav-links */
+    color: var(--rose-bonbon);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+.footer-copyright {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 0.7rem;
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Adaptation Mobile */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
