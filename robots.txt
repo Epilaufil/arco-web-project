@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /functions/
+
+# Indique aux moteurs ton futur domaine de production
+# Sitemap: https://www.epilaufil.fr/sitemap.xml
