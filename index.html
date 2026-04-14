@@ -34,6 +34,17 @@
   "url": "https:\/\/www.epilaufil.fr"
 }
 </script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9XCE4NT8K8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9XCE4NT8K8');
+</script>
+
 </head>
 
 <body>
@@ -177,9 +188,16 @@
     
     <div class="contact-wrapper">
         <div class="contact-action-box">
-            <a href="https://wa.me/33745903838?text=Bonjour%20Epilaufil..." class="cta-button wa-btn">
-                M'écrire sur WhatsApp
+            <a href="javascript:void(0);" onclick="toggleWA()" class="cta-button wa-btn">
+        M'écrire sur WhatsApp
             </a>
+            
+            
+            
+            
+            <!-- <a href="https://wa.me/33745903838?text=Bonjour%20Epilaufil..." class="cta-button wa-btn">
+                M'écrire sur WhatsApp
+            </a> -->
         </div>
 
         <div class="separateur-vertical">OU</div>
@@ -238,9 +256,21 @@
 
 <!-- --- --- --- SCRIPTS --- --- --- -->
 <script>
-function toggleWA(){
-  const x = document.getElementById('wa-chat');
-  x.style.display = x.style.display==='none'?'block':'none';
+function toggleWA() {
+    const chatBox = document.getElementById('wa-chat');
+    const isHidden = chatBox.style.display === 'none' || chatBox.style.display === '';
+    
+    if (isHidden) {
+        chatBox.style.display = 'block';
+        // Envoi de l'événement à Google Analytics
+        gtag('event', 'contact_whatsapp_click', {
+            'event_category': 'Engagement',
+            'event_label': 'Ouverture Bulle WA'
+        });
+        document.getElementById('wa-box').scrollIntoView({ behavior: 'smooth', block: 'end' });
+    } else {
+        chatBox.style.display = 'none';
+    }
 }
 
 // Intersection Observer pour animations brique
@@ -257,6 +287,13 @@ function loadCalendly(e){
   
   // On évite les clics multiples
   if(btn.style.opacity === "0.5") return;
+
+  // Envoi de l'événement à Google Analytics
+    gtag('event', 'appointment_click', {
+        'event_category': 'Conversion',
+        'event_label': 'Ouverture Calendly'
+    });
+
   btn.style.opacity = "0.5";
   btn.style.cursor = "wait";
 

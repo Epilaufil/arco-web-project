@@ -32,11 +32,14 @@ export async function onRequest(context) {
       } catch(e) { source = "Direct"; }
     }
 
-    // 3. ANALYSE OS & NAVIGATEUR
+// 3. ANALYSE OS (Version complète)
     let os = "Autre";
     if (ua.includes("Windows")) os = "Windows";
-    else if (ua.includes("iPhone") || ua.includes("iPad")) os = "iOS";
     else if (ua.includes("Android")) os = "Android";
+    else if (ua.includes("Linux")) os = "Linux"; // À placer avant Macintosh pour certains navigateurs
+    else if (ua.includes("iPhone") || ua.includes("iPad") || (ua.includes("Macintosh") && "ontouchend" in request)) {
+        os = "iOS"; // Gère les iPad récents qui se font passer pour des Mac
+    } 
     else if (ua.includes("Macintosh")) os = "MacOS";
 
     let browser = "Autre";
@@ -55,7 +58,7 @@ export async function onRequest(context) {
         // Exemple : stats:2026-04-12:FR:Meudon:Organic:iOS:Safari
     const statKey = `stats:${date}:${country}:${city}:${source}:${os}:${browser}`;
 
-    
+
     context.waitUntil(
       (async () => {
         try {
