@@ -1,74 +1,88 @@
 export async function onRequest(context) {
   const { request, env, next } = context;
   const url = new URL(request.url);
-  const ua = request.headers.get("user-agent") || "";
-  const referer = request.headers.get("referer") || "";
 
-  // 1. FILTRES ANTI-BOTS
-  const botList = ["bot", "spider", "crawler", "ahrefs", "semrush", "uptime"];
-  const isBot = botList.some(bot => ua.toLowerCase().includes(bot));
-  const isValidPage = url.pathname === "/" || url.pathname.endsWith(".html");
+ 
+  const GOOGLE_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwQKvYNLNLDK5J3RKXI0vTP0Drb1jDBb5qWHcsm8aJl0ZuBd7YMLFjfxqfZ0-p6YKPi/exec";
 
-  if (!isBot && isValidPage && request.method === "GET") {
-    
-    // 2. ANALYSE DE LA SOURCE (ÉLARGIE)
-    let source = "Direct";
-    if (referer) {
-      try {
-        const refHost = new URL(referer).hostname.toLowerCase();
-        
-        // Liste élargie des moteurs de recherche
-        const searchEngines = ["google.", "bing.", "yahoo.", "duckduckgo.", "ecosia.", "qwant.", "baidu", "yandex"];
-        // Liste des réseaux sociaux
-        const socialPlatforms = ["instagram.com", "facebook.com", "t.co", "linkedin.com", "pinterest.", "tiktok."];
+  // On intercepte uniquement les appels de notre script de tracking
+  if (url.pathname === "/api/analytics" && request.method === "POST") {
+    try {
+      const body = await request.json();
+      const ua = request.headers.get("user-agent") || "";
+      const referer = body.referer || "";
 
-        if (searchEngines.some(engine => refHost.includes(engine))) {
-          source = "Organic";
-        } else if (socialPlatforms.some(platform => refHost.includes(platform))) {
-          source = "Social";
-        } else {
-          source = "Referral"; // Un autre site web a mis un lien vers toi
-        }
-      } catch(e) { source = "Direct"; }
-    }
-
-// 3. ANALYSE OS (Version complète)
-    let os = "Autre";
-    if (ua.includes("Windows")) os = "Windows";
-    else if (ua.includes("Android")) os = "Android";
-    else if (ua.includes("Linux")) os = "Linux"; // À placer avant Macintosh pour certains navigateurs
-    else if (ua.includes("iPhone") || ua.includes("iPad") || (ua.includes("Macintosh") && "ontouchend" in request)) {
-        os = "iOS"; // Gère les iPad récents qui se font passer pour des Mac
-    } 
-    else if (ua.includes("Macintosh")) os = "MacOS";
-
-    let browser = "Autre";
-    if (ua.includes("Chrome") && !ua.includes("Edg")) browser = "Chrome";
-    else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
-    else if (ua.includes("Firefox")) browser = "Firefox";
-    else if (ua.includes("Edg")) browser = "Edge";
-
-    // 4. INFOS CLOUDFLARE**
-
-    const city = request.cf.city || "Inconnue";
-    const country = request.cf.country || "XX"; // XX si non détecté
-    const date = new Date().toISOString().split('T')[0];
-
-    // 5. CLÉ KV (stats:DATE:VILLE:SOURCE:OS:NAV)
-        // Exemple : stats:2026-04-12:FR:Meudon:Organic:iOS:Safari
-    const statKey = `stats:${date}:${country}:${city}:${source}:${os}:${browser}`;
-
-
-    context.waitUntil(
-      (async () => {
+      // 1. ANALYSE DE LA SOURCE
+      let source = "Direct";
+      if (referer) {
         try {
-          const current = await env.STATS_VISITES.get(statKey);
-          const count = (parseInt(current) || 0) + 1;
-          await env.STATS_VISITES.put(statKey, count.toString());
-        } catch (e) { console.error("KV Error:", e); }
-      })()
-    );
+          const refHost = new URL(referer).hostname.toLowerCase();
+          const searchEngines = ["google.", "bing.", "yahoo.", "duckduckgo.", "ecosia.", "qwant.", "baidu", "yandex"];
+          const socialPlatforms = ["instagram.com", "facebook.com", "t.co", "linkedin.com", "pinterest.", "tiktok."];
+
+          if (searchEngines.some(engine => refHost.includes(engine))) {
+            source = "Organic";
+          } else if (socialPlatforms.some(platform => refHost.includes(platform))) {
+            source = "Social";
+          } else {
+            source = "Referral";
+          }
+        } catch(e) { source = "Direct"; }
+      }
+
+      // 2. ANALYSE DU SYSTÈME (OS)
+      let os = "Autre";
+      if (ua.includes("Windows")) os = "Windows";
+      else if (ua.includes("Android")) os = "Android";
+      else if (ua.includes("Linux")) os = "Linux";
+      else if (ua.includes("iPhone") || ua.includes("iPad") || (ua.includes("Macintosh") && "ontouchend" in request)) {
+          os = "iOS";
+      } 
+      else if (ua.includes("Macintosh")) os = "MacOS";
+
+      // 3. ANALYSE DU NAVIGATEUR
+      let browser = "Autre";
+      if (ua.includes("Chrome") && !ua.includes("Edg")) browser = "Chrome";
+      else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
+      else if (ua.includes("Firefox")) browser = "Firefox";
+      else if (ua.includes("Edg")) browser = "Edge";
+
+      // 4. RÉCUPÉRATION DE LA GÉOLOCALISATION CLOUDFLARE
+      const city = request.cf?.city || "Inconnue";
+      const country = request.cf?.country || "XX";
+      
+      // Date et heure précise (Heure de Paris)
+      const dateStr = new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" });
+
+      // 5. ENVOI ARRIÈRE-PLAN VERS GOOGLE DRIVE
+      const payload = {
+        date: dateStr,
+        type: body.type || "Visite",
+        source: source,
+        city: city,
+        country: country,
+        os: os,
+        browser: browser
+      };
+
+      // Exécution asynchrone pour ne pas ralentir l'affichage du site
+      context.waitUntil(
+        fetch(GOOGLE_WEBAPP_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).catch(err => console.error("Erreur WebApp Google:", err))
+      );
+
+      return new Response(JSON.stringify({ success: true }), {
+        headers: { "Content-Type": "application/json" }
+      });
+
+    } catch (err) {
+      return new Response(JSON.stringify({ success: false, error: err.message }), { status: 500 });
+    }
   }
 
+  // Laisse le site internet se charger normalement pour le reste du trafic
   return next();
 }

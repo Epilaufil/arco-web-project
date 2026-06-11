@@ -7,17 +7,25 @@
     <meta name="description" content="Épilation au fil à Issy-les-Moulineaux. Spécialiste des sourcils et de la beauté du regard. Technique naturelle, précise et sans produit chimique. Prenez rendez-vous chez Epilaufil.">
     <meta name="theme-color" content="#6c5ce7">
     
+<!-- Google tag (gtag.js) -->    
     <script>
     // Initialisation du Consent Mode par défaut
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
 
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'analytics_storage': 'granted' // On garde la mesure statistique
-  });
+      // On refuse par défaut la pub, on autorise uniquement les stats anonymes
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'granted'
+      });
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XCE4NT8K8"></script>
+    <script>
+      gtag('js', new Date());
+      gtag('config', 'G-9XCE4NT8K8');
     </script>
 
 <!-- Google Fonts optimisés -->
@@ -43,19 +51,9 @@
     "addressLocality": "Issy-les-Moulineaux",
     "addressCountry": "FR"
   },
-  "telephone": "+33758339907",
+  "telephone": "+33745903838",
   "url": "https:\/\/www.epilaufil.fr"
 }
-</script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9XCE4NT8K8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9XCE4NT8K8');
 </script>
 
 </head>
