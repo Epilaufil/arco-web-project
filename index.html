@@ -6,16 +6,12 @@
     <title>Épilation au fil à Issy-les-Moulineaux | Sourcils & Beauté du regard | Epilaufil</title>
     <meta name="description" content="Épilation au fil à Issy-les-Moulineaux. Spécialiste des sourcils et de la beauté du regard. Technique naturelle, précise et sans produit chimique. Prenez rendez-vous chez Epilaufil.">
     <meta name="theme-color" content="#6c5ce7">
-<<<<<<< HEAD
-    
-<!-- Google tag (gtag.js) -->    
-=======
     <meta property="og:title" content="Epilaufil | Épilation au fil à Issy-les-Moulineaux">
     <meta property="og:description" content="Sublimez votre regard avec une technique 100% naturelle.">
-    <meta property="og:image" content="https://www.epilaufil.fr/img/photo-partage.jpg">
-    <meta property="og:url" content="https://www.epilaufil.fr">
-
->>>>>>> 0b1534d13e49fdee12547ef26f7d01f31d4de273
+    <meta property="og:image" content="https://epilaufil.fr/img/photo-partage.jpg">
+    <meta property="og:url" content="https://epilaufil.fr">
+    
+<!-- Google tag (gtag.js) -->    
     <script>
     // Initialisation du Consent Mode par défaut
       window.dataLayer = window.dataLayer || [];
@@ -77,7 +73,7 @@
   
   <div class="nav-content">
     <div class="logo">
-        <a href="#accueil">EPILAUFIL</a>
+        <a href="#">EPILAUFIL</a>
         <span class="text-aesthetic slogan">L'épilation au fil à Issy</span>
     </div>
     <div class="nav-links">
@@ -110,32 +106,14 @@
 
         <section id="accueil" class="brique">
             <h2>Bienvenue</h2>
-<!--            <p>Epilaufil vous propose une épilation du visage <span class="highlight">au fil</span>. Cette technique ancestrale est 100% naturelle, rapide, précise et sans risque d'allergie.</p>
+            <p>Epilaufil vous propose une épilation du visage <span class="highlight">au fil</span>. Cette technique ancestrale est 100% naturelle, rapide, précise et sans risque d'allergie.</p>
             <p>Spécialiste de la <span class="highlight">beauté du regard</span>, Epilaufil sublime vos sourcils.</p>
             <p>Situé à Issy-les-Moulineaux, Epilaufil est spécialisé dans l'épilation au fil du visage. Que vous souhaitiez <a href="#nettoyage">nettoyer</a> ou <a href="#transformation">restructurer</a> des sourcils, je sublime naturellement votre regard.</p>
             <p>Je vous propose également mes services pour une pédicure si vous souhaitez.</p>
             <p>N'hésitez pas à me contacter ou <a href="#rdv">prendre rendez-vous</a> !</p>
             <p>A bientôt !</p>
--->
 
-<p> <span class="highlight">EPILAUFIL</span> Le regard parfait, 100% naturel, sans compromis</p>
-<p> Et si vos sourcils étaient enfin parfaits… sans maquillage, sans contrainte, et surtout sans effet artificiel ?</p>
-<p> Chez <span class="highlight">Epilaufil</span>, chaque détail compte. Je redonne vie à vos sourcils en respectant votre nature, avec un objectif clair : un résultat 100% naturel, harmonieux et durable.</p>
-<p> Ici, vous n’êtes pas un rendez-vous de plus.</p>
-<p> Je ne travaille pas “à la chaîne”.</p>
-<p> Chaque cliente bénéficie d’un vrai moment dédié, où je prends le temps de comprendre vos attentes, d’analyser votre visage et de créer une ligne de sourcils qui vous correspond parfaitement.</p>
-<p> Fini les sourcils trop marqués, les asymétries ou le maquillage quotidien. Place à un regard structuré, élégant… sans que cela se voie.</p>
-<ul class="points-cles">
-    <li>Résultat 100% naturel, sans effet figé</li>
-    <li>Un moment entièrement dédié à vous</li>
-    <li>Travail précis, sur mesure</li>
-    <li>Gain de temps au quotidien</li>
-</ul>
-<p>Mon approche repose sur l’écoute, la précision et la recherche des meilleures solutions pour vous simplifier la vie tout en sublimant votre regard.</p>
-<p>Avec <span class="highlight">Epilaufil</span>, vous ne passez pas entre deux clientes… vous êtes la priorité.</p>
-<p>Vous ne changez pas de visage… vous révélez le vôtre !</p>
-
-</section>
+        </section>
  <!-- ============================================ EXPERTISE ============================================ -->
 <!--        <section id="expert" class="brique">
             <h2>Pourquoi le fil ?</h2>
@@ -280,16 +258,17 @@
     </div>
 </footer>
 
-    <!-- WA flottant -->
-     <!-- WA BOX -->
-        <div id="wa-box">
-    <div id="wa-chat" style="display:none;">
-        <div><br>EPILAUFIL<small>Beauté du regard à Issy</small></div>
-        <div>Bonjour ! Une question sur une prestation ou besoin d'un créneau ? C'est par ici ! 🌸</div>
-        <a href="https://wa.me/33745903838?text=Bonjour!" target="_blank">Discuter sur WhatsApp</a>
+<!-- WA flottant -->
+    <!-- WA BOX -->
+    <div id="wa-box">
+        <div id="wa-chat" style="display:none;">
+            <div><br>EPILAUFIL<small>Beauté du regard à Issy</small></div>
+            <div>Bonjour ! Une question sur une prestation ou besoin d'un créneau ? C'est par ici ! 🌸</div>
+            <!-- Correction syntaxe HTML de la ligne ci-dessous : onclick réintégré dans la balise d'ouverture -->
+            <a href="https://wa.me/33745903838?text=Bonjour!" target="_blank" onclick="trackWARedirect()">Discuter sur WhatsApp</a>
+        </div>
+        <div onclick="toggleWA()" role="button" aria-label="Ouvrir le chat WhatsApp" style="cursor: pointer;">💬</div>
     </div>
-    <div onclick="toggleWA()" role="button" aria-label="Ouvrir le chat WhatsApp" style="cursor: pointer;">💬</div>
-</div>
 
 <!-- --- --- --- SCRIPTS --- --- --- -->
 <script>
@@ -299,7 +278,6 @@ function toggleWA() {
     
     if (isHidden) {
         chatBox.style.display = 'block';
-        // Envoi de l'événement à Google Analytics
         gtag('event', 'contact_whatsapp_click', {
             'event_category': 'Engagement',
             'event_label': 'Ouverture Bulle WA'
@@ -310,57 +288,76 @@ function toggleWA() {
     }
 }
 
-// Intersection Observer pour animations brique
+// Déclencheur du clic de conversion WhatsApp direct vers votre Google Sheet
+function trackWARedirect() {
+    gtag('event', 'whatsapp_conversion', {
+        'event_category': 'Conversion',
+        'event_label': 'Clic Lien wa.me'
+    });
+
+    // Envoi de l'événement de conversion vers notre API Cloudflare
+    fetch('/api/analytics', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'Clic WhatsApp', referer: document.referrer })
+    }).catch(() => {});
+}
+
+// Événement au chargement complet de la page (Zéro bots)
 document.addEventListener("DOMContentLoaded", function() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
-  }, {threshold:0.1});
-  document.querySelectorAll('.brique').forEach(b=>observer.observe(b));
+    // 1. Envoi du signal de visite à notre API Cloudflare interne
+    fetch('/api/analytics', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'Visite', referer: document.referrer })
+    }).catch(() => {});
+
+    // 2. Intersection Observer d'origine pour les briques
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
+    }, {threshold:0.1});
+    document.querySelectorAll('.brique').forEach(b=>observer.observe(b));
 });
 
 // Calendly lazy load
 function loadCalendly(e){
-  const btn = e.currentTarget;
-  
-  // On évite les clics multiples
-  if(btn.style.opacity === "0.5") return;
+    const btn = e.currentTarget;
+    if(btn.style.opacity === "0.5") return;
 
-  // Envoi de l'événement à Google Analytics
     gtag('event', 'appointment_click', {
         'event_category': 'Conversion',
         'event_label': 'Ouverture Calendly'
     });
 
-  btn.style.opacity = "0.5";
-  btn.style.cursor = "wait";
+    btn.style.opacity = "0.5";
+    btn.style.cursor = "wait";
 
-  const openWidget = () => {
-    btn.style.opacity = "1";
-    btn.style.cursor = "pointer";
-    Calendly.initPopupWidget({
-      url: 'https://calendly.com/epilaufil/epilation-du-visage'
-    });
-  };
-
-  if(!window.CalendlyLoaded){
-    const link = document.createElement('link');
-    link.rel='stylesheet'; 
-    link.href='https://assets.calendly.com/assets/external/widget.css';
-    document.head.appendChild(link);
-
-    const script = document.createElement('script');
-    script.src='https://assets.calendly.com/assets/external/widget.js';
-    script.async=true;
-    script.onload = () => {
-      window.CalendlyLoaded = true;
-      openWidget();
+    const openWidget = () => {
+        btn.style.opacity = "1";
+        btn.style.cursor = "pointer";
+        Calendly.initPopupWidget({
+            url: 'https://calendly.com/epilaufil/epilation-du-visage'
+        });
     };
-    document.body.appendChild(script);
-  } else {
-    openWidget();
-  }
+
+    if(!window.CalendlyLoaded){
+        const link = document.createElement('link');
+        link.rel='stylesheet'; 
+        link.href='https://assets.calendly.com/assets/external/widget.css';
+        document.head.appendChild(link);
+
+        const script = document.createElement('script');
+        script.src='https://assets.calendly.com/assets/external/widget.js';
+        script.async=true;
+        script.onload = () => {
+            window.CalendlyLoaded = true;
+            openWidget();
+        };
+        document.body.appendChild(script);
+    } else {
+        openWidget();
+    }
 }
 </script>
-   
 </body>
 </html>
