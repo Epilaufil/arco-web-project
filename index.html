@@ -260,17 +260,15 @@
 
 <!-- WA flottant -->
     <!-- WA BOX -->
-    <div id="wa-box">
+<div id="wa-box">
         <div id="wa-chat" style="display:none;">
             <div><br>EPILAUFIL<small>Beauté du regard à Issy</small></div>
             <div>Bonjour ! Une question sur une prestation ou besoin d'un créneau ? C'est par ici ! 🌸</div>
-            <!-- Correction syntaxe HTML de la ligne ci-dessous : onclick réintégré dans la balise d'ouverture -->
-            <a href="https://wa.me/33745903838?text=Bonjour!" target="_blank" onclick="trackWARedirect()">Discuter sur WhatsApp</a>
+            <a href="https://wa.me/33745903838?text=Bonjour!%20Pourriez-vous%20me%20renseigner%20?" target="_blank" onclick="trackWARedirect()">Discuter sur WhatsApp</a>
         </div>
         <div onclick="toggleWA()" role="button" aria-label="Ouvrir le chat WhatsApp" style="cursor: pointer;">💬</div>
     </div>
 
-<!-- --- --- --- SCRIPTS --- --- --- -->
 <script>
 function toggleWA() {
     const chatBox = document.getElementById('wa-chat');
@@ -278,6 +276,7 @@ function toggleWA() {
     
     if (isHidden) {
         chatBox.style.display = 'block';
+        // Événement d'engagement Google Analytics d'origine
         gtag('event', 'contact_whatsapp_click', {
             'event_category': 'Engagement',
             'event_label': 'Ouverture Bulle WA'
@@ -288,14 +287,14 @@ function toggleWA() {
     }
 }
 
-// Déclencheur du clic de conversion WhatsApp direct vers votre Google Sheet
+// Déclencheur du clic de conversion WhatsApp vers l'API interne Cloudflare
 function trackWARedirect() {
     gtag('event', 'whatsapp_conversion', {
         'event_category': 'Conversion',
         'event_label': 'Clic Lien wa.me'
     });
 
-    // Envoi de l'événement de conversion vers notre API Cloudflare
+    // Envoi de la conversion vers notre middleware (Zéro bots)
     fetch('/api/analytics', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -303,23 +302,23 @@ function trackWARedirect() {
     }).catch(() => {});
 }
 
-// Événement au chargement complet de la page (Zéro bots)
+// Chargement complet de la page (Utilisateurs réels uniquement)
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. Envoi du signal de visite à notre API Cloudflare interne
+    // 1. Envoi immédiat du signal de visite humaine à notre middleware
     fetch('/api/analytics', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ type: 'Visite', referer: document.referrer })
     }).catch(() => {});
 
-    // 2. Intersection Observer d'origine pour les briques
+    // 2. Intersection Observer d'origine pour l'apparition des briques au scroll
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
     }, {threshold:0.1});
     document.querySelectorAll('.brique').forEach(b=>observer.observe(b));
 });
 
-// Calendly lazy load
+// Calendly lazy load d'origine
 function loadCalendly(e){
     const btn = e.currentTarget;
     if(btn.style.opacity === "0.5") return;
