@@ -8,6 +8,8 @@
     --off-white: #F9F7F2;
     --slate-blue: #2F4858;
     --terracotta: #C05746;
+    --whatsapp-green: #25D366;
+    --calendar-blue: #006BFF;
 }
 
 /* --- RESET ET BASE --- */
@@ -405,7 +407,12 @@ h2 { font-family:'Playfair Display', serif; color:var(--violet); font-size:1.6re
     width: 56px !important;
     height: 56px !important;
     border-radius: 50% !important;
-    border: none !important;
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, background-color 0.3s ease !important;
     cursor: pointer !important;
     display: flex !important;
     align-items: center !important;
@@ -425,4 +432,35 @@ h2 { font-family:'Playfair Display', serif; color:var(--violet); font-size:1.6re
 /* Sécurité pour la bulle WhatsApp */
 #fixed-action-container #wa-chat {
     z-index: 100000 !important;
+}
+/* Coloration ciblée des SVG (remplace l'émoji si vous mettez un SVG) */
+#fixed-action-container .fab-btn.whatsapp-btn svg {
+    fill: var(--whatsapp-green) !important;
+    stroke: var(--whatsapp-green) !important; /* Pour les icônes de type line-art */
+}
+
+#fixed-action-container .fab-btn.calendar-btn svg {
+    fill: var(--calendar-blue) !important;
+    stroke: var(--calendar-blue) !important;
+}
+
+/* 2. État au survol : Remplissage complet de la couleur officielle + lueur colorée */
+#fixed-action-container .fab-btn:hover {
+    transform: translateY(-4px) scale(1.05) !important;
+}
+
+#fixed-action-container .fab-btn.whatsapp-btn:hover {
+    background: var(--whatsapp-green) !important;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4) !important;
+}
+
+#fixed-action-container .fab-btn.calendar-btn:hover {
+    background: var(--calendar-blue) !important;
+    box-shadow: 0 10px 25px rgba(0, 107, 255, 0.4) !important;
+}
+
+/* L'icône passe en blanc quand le fond se colore au survol */
+#fixed-action-container .fab-btn:hover svg {
+    fill: var(--white) !important;
+    stroke: var(--white) !important;
 }
