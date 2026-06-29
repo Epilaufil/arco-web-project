@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /functions/
 
-# Indique aux moteurs ton futur domaine de production
-# Sitemap: https://www.epilaufil.fr/sitemap.xml
+# Indique aux moteurs le domaine de production
+Sitemap: https://epilaufil.fr/sitemap.xml
