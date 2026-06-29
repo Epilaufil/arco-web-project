@@ -11,12 +11,11 @@
     <link rel="icon" type="image/png" href="https://epilaufil.fr/img/favIcon.webp">
     <link rel="apple-touch-icon" href="https://epilaufil.fr/img/apple-touch-icon.webp">
 
-    <!-- Balises de partage Réseaux Sociaux (Open Graph - WhatsApp, FB, Insta) -->
+    <!-- Balises de partage Réseaux Sociaux (Open Graph) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://epilaufil.fr">
     <meta property="og:title" content="Épilation au fil à Issy-les-Moulineaux | Epilaufil">
     <meta property="og:description" content="Technique naturelle, précise et sans produit chimique pour la beauté de votre regard. Prenez rendez-vous chez Epilaufil.">
-    <!-- Extension .jpg obligatoire ici pour la compatibilité des robots -->
     <meta property="og:image" content="https://epilaufil.fr/img/share-banner.jpg">
 
     <!-- Version spécifique pour Twitter/X -->
@@ -25,13 +24,10 @@
     <meta name="twitter:description" content="Sublimez votre regard avec une technique 100% naturelle.">
     <meta name="twitter:image" content="https://epilaufil.fr/img/share-banner.jpg">
     
-<!-- Google tag (gtag.js) -->    
+    <!-- Google tag (gtag.js) -->    
     <script>
-    // Initialisation du Consent Mode par défaut
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-
-      // On refuse par défaut la pub, on autorise uniquement les stats anonymes
       gtag('consent', 'default', {
         'ad_storage': 'denied',
         'ad_user_data': 'denied',
@@ -39,41 +35,35 @@
         'analytics_storage': 'granted'
       });
     </script>
-
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XCE4NT8K8"></script>
     <script>
       gtag('js', new Date());
       gtag('config', 'G-9XCE4NT8K8');
     </script>
 
-<!-- Google Fonts optimisés -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 
-<!-- Favicon -->
-    <link rel="icon" type="image/webp" href="img/favIcon.webp">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-
-<!-- CSS externe -->
+    <!-- CSS externe -->
     <link rel="stylesheet" href="css/style.css">
     
-<!-- JSON-LD SEO local -->
-<script type="application/ld+json">
-{
-  "@context": "https:\/\/schema.org",
-  "@type": "BeautySalon",
-  "name": "Epilaufil",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Issy-les-Moulineaux",
-    "addressCountry": "FR"
-  },
-  "telephone": "+33745903838",
-  "url": "https:\/\/epilaufil.fr"
-}
-</script>
-
+    <!-- JSON-LD SEO local -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "Epilaufil",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Issy-les-Moulineaux",
+        "addressCountry": "FR"
+      },
+      "telephone": "+33745903838",
+      "url": "https://epilaufil.fr"
+    }
+    </script>
 </head>
 
 <body>
@@ -99,158 +89,120 @@
   </div>
 </header>
 
-<!-- Background blobs -->
-    <div class="glass-bg">
-        <div class="blob pink"></div>
-        <div class="blob purple"></div>
-        <div class="blob light"></div>
-    </div>
+<!-- Background blobs vaporeux -->
+<div class="glass-bg">
+    <div class="blob pink"></div>
+    <div class="blob purple"></div>
+    <div class="blob light"></div>
+</div>
 
-   <!--  <nav>
-        <a href="#" class="logo">EPILAUFIL</a>
-        <div class="nav-links">
-            <a href="#expert">Expertise</a>
-            <a href="#tarifs">Tarifs</a>
-            <a href="#rdv">RDV</a>
+<div class="container">
+    <h1>Épilation au fil à Issy-les-Moulineaux</h1>
+
+    <section id="accueil" class="brique">
+        <h2>Bienvenue</h2>
+        <p>Epilaufil vous propose une épilation du visage <span class="highlight">au fil</span>. Cette technique ancestrale est 100% naturelle, rapide, précise et sans risque d'allergie.</p>
+        <p>Spécialiste de la <span class="highlight">beauté du regard</span>, Epilaufil sublime vos sourcils.</p>
+        <p>Situé à Issy-les-Moulineaux, Epilaufil est spécialisé dans l'épilation au fil du visage. Que vous souhaitiez <a href="#nettoyage">nettoyer</a> ou <a href="#transformation">restructurer</a> des sourcils, je sublime naturellement votre regard.</p>
+        <p>Je vous propose également mes services pour une pédicure si vous souhaitez.</p>
+        <p>N'hésitez pas à me contacter ou <a href="#rdv">prendre rendez-vous</a> !</p>
+        <p>A bientôt !</p>
+    </section>
+
+    <section id="transformation" class="brique">
+        <h2>Construction</h2>
+        <p>Une restructuration complète pour redéfinir votre regard.</p>
+        <p>Il ne s'agit pas de retirer seulement des poils, on <span class="highlight">sculpte</span> la structure du regard.</p>
+        <p>C'est ici qu'on corrige une asymétrie ou qu'on redonne du caractère à un visage.</p>
+        
+        <div class="galerie-avant-apres">
+            <div class="cadre-photo">
+                <span class="badge">Avant</span>
+                <div class="photo-large avant"></div>
+            </div>
+
+            <div class="separateur-chic">
+                <span>RÉSULTAT</span>
+            </div>
+
+            <div class="cadre-photo">
+                <span class="badge">Après</span>
+                <div class="photo-large apres"></div>
+            </div>
         </div>
-    </nav> -->
+    </section>
 
-    <div class="container">
-        <h1>Épilation au fil à Issy-les-Moulineaux</h1>
+    <section id="nettoyage" class="brique">
+        <h2>Nettoyage</h2>
+        <p>On élimine le duvet et les poils isolés qui floutent la ligne sans modifier la forme du sourcil.</p>
+        <p>On intervient sur les zones périphériques (paupière mobile, front, entre-sourcils éloigné). Le fil est particulièrement efficace ici car il attrape tous les poils.</p>
+        <p>C'est ce qui apporte la netteté et la lumière à votre regard. C'est cette étape qui permet d'obtenir ce rendu <span class="highlight">propre et net</span> qui fait ressortir le contraste avec la peau, essentiel pour l'esthétique de votre visage.</p>
+        <div class="image-wrapper">
+            <img src="img/APRES2.webp" alt="Résultat nettoyage épilation au fil des sourcils chez Epilaufil à Issy" class="image-transparent" loading="lazy" width="600" height="400">
+        </div>
+    </section>
 
-        <section id="accueil" class="brique">
-            <h2>Bienvenue</h2>
-            <p>Epilaufil vous propose une épilation du visage <span class="highlight">au fil</span>. Cette technique ancestrale est 100% naturelle, rapide, précise et sans risque d'allergie.</p>
-            <p>Spécialiste de la <span class="highlight">beauté du regard</span>, Epilaufil sublime vos sourcils.</p>
-            <p>Situé à Issy-les-Moulineaux, Epilaufil est spécialisé dans l'épilation au fil du visage. Que vous souhaitiez <a href="#nettoyage">nettoyer</a> ou <a href="#transformation">restructurer</a> des sourcils, je sublime naturellement votre regard.</p>
-            <p>Je vous propose également mes services pour une pédicure si vous souhaitez.</p>
-            <p>N'hésitez pas à me contacter ou <a href="#rdv">prendre rendez-vous</a> !</p>
-            <p>A bientôt !</p>
-
-        </section>
- <!-- ============================================ EXPERTISE ============================================ -->
-<!--        <section id="expert" class="brique">
-            <h2>Pourquoi le fil ?</h2>
-            <ul>
-                <li><strong>Précision :</strong> Une ligne parfaite.</li>
-                <li><strong>Naturel :</strong> Aucun produit chimique.</li>
-                
-            </ul>
-        </section> -->
-<!-- ============================================ TRANSFORMATION ============================================ -->
-        <section id="transformation" class="brique">
-            <h2>Construction</h2>
-            <p>Une restructuration complète pour redéfinir votre regard.
-            <p>Il ne s'agit pas de retirer seulement des poils, on <span class="highlight">sculpte</span> la structure du regard.</p>
-            <p>C'est ici qu'on corrige une asymétrie ou qu'on redonne du caractère à un visage.</p>
-            
-            <div class="galerie-avant-apres">
-                <div class="cadre-photo">
-                    <span class="badge">Avant</span>
-                    <div class="photo-large avant"></div>
+    <section id="tarifs" class="brique">
+        <h2>Tarifs</h2>
+        <div class="tarif-list">
+            <div class="tarif-item">
+                <div>
+                    <span>Nettoyage</span>
+                    <p class="tarif-description">Prix par zone</p>
                 </div>
-
-                <div class="separateur-chic">
-                    <span>RÉSULTAT</span>
-                </div>
-
-                <div class="cadre-photo">
-                    <span class="badge">Après</span>
-                    <div class="photo-large apres"></div>
-                </div>
+                <span>5€</span>
             </div>
-        </section>
 
-        <section id="nettoyage" class="brique">
-            <h2>Nettoyage</h2>
-            <p>On élimine le duvet et les poils isolés qui floutent la ligne sans modifier la forme du sourcil.</p>
-            <p>On intervient sur les zones périphériques (paupière mobile, front, entre-sourcils éloigné). Le fil est particulièrement efficace ici car il attrape tous les poils.</p>
-            <p>C'est ce qui apporte la netteté et la lumière à votre regard. C'est cette étape qui permet d'obtenir ce rendu  <span class="highlight">propre et net</span> qui fait ressortir le contraste avec la peau, essentiel pour l'esthétique de ton visage.</p>
-            <div class="image-wrapper">
-                <img src="img/APRES2.webp" alt="Résultat nettoyage épilation au fil des sourcils chez Epilaufil à Issy" class="image-transparent" loading="lazy" width="600" height="400">
-            </div>
-        </section>
-
-<!-- ============================================ TARIFS ============================================ -->
-        <section id="tarifs" class="brique">
-            <h2>Tarifs</h2>
-
-            <div class="tarif-list">
-                <div class="tarif-item">
-                <div><span>Nettoyage</span>
-                        <p class="tarif-description">Prix par zone</p>
-                    </div>
-                    <span>5€</span>
-                </div>
-
-                <div class="tarif-item">
+            <div class="tarif-item">
                 <span>Coloration</span>
                 <span>7€</span>
-                </div>
-
-                <div class="tarif-item">
-                <div><span>Visage</span>
-                     <p class="tarif-description">Prix forfaitaire, ne comprend pas de coloration ni de construction.</p>
-                    </div>
-                <span>25€</span>
-                </div>
-
-  
-
-         
             </div>
-        </section>
 
-       
-  <!-- ============================================ RDV ============================================ -->
-  <section id="rdv" class="brique">
-    <h2>Rendez-vous</h2>
-    <div style="text-align:center;">
-      <a href="javascript:void(0);" onclick="loadCalendly(event)" class="cta-button">Prendre Rendez-vous</a>
-    </div>
-  </section>
-
-  <!-- =============================== CONTACT ================================= -->
-<section id="contact" class="brique brique-large">
-    <h2>Me Contacter</h2>
-    <p>Vous pouvez m'envoyer un message directement sur WhatsApp ou un mail depuis le formulaire ci-dessous.</p>
-    
-    <div class="contact-wrapper">
-        <div class="contact-action-box">
-            <a href="javascript:void(0);" onclick="toggleWA()" class="cta-button wa-btn">
-        M'écrire sur WhatsApp
-            </a>
-            
-            
-            
-            
-            <!-- <a href="https://wa.me/33745903838?text=Bonjour%20Epilaufil..." class="cta-button wa-btn">
-                M'écrire sur WhatsApp
-            </a> -->
+            <div class="tarif-item">
+                <div>
+                    <span>Visage</span>
+                    <p class="tarif-description">Prix forfaitaire, ne comprend pas de coloration ni de construction.</p>
+                </div>
+                <span>25€</span>
+            </div>
         </div>
+    </section>
 
-        <div class="separateur-vertical">OU</div>
-
-        <div class="tally-wrapper">
-            <iframe 
-                data-tally-src="https://tally.so/embed/ZjYoGv?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-                loading="lazy" 
-                width="100%" 
-                height="450" 
-                frameborder="0" 
-                title="Contact Epilaufil">
-            </iframe>
+    <section id="rdv" class="brique">
+        <h2>Rendez-vous</h2>
+        <div style="text-align:center;">
+          <a href="javascript:void(0);" onclick="loadCalendly(event)" class="cta-button">Prendre Rendez-vous</a>
         </div>
-    </div>
-</section>
+    </section>
 
+    <section id="contact" class="brique brique-large">
+        <h2>Me Contacter</h2>
+        <p>Vous pouvez m'envoyer un message directement sur WhatsApp ou un mail depuis le formulaire ci-dessous.</p>
+        
+        <div class="contact-wrapper">
+            <div class="contact-action-box">
+                <a href="javascript:void(0);" onclick="toggleWA()" class="cta-button wa-btn">
+                    M'écrire sur WhatsApp
+                </a>
+            </div>
 
+            <div class="separateur-vertical">OU</div>
+
+            <div class="tally-wrapper">
+                <iframe 
+                    data-tally-src="https://tally.so/embed/ZjYoGv?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                    loading="lazy" 
+                    width="100%" 
+                    height="450" 
+                    frameborder="0" 
+                    title="Contact Epilaufil">
+                </iframe>
+            </div>
+        </div>
+    </section>
+</div>
 
 <script async src="https://tally.so/widgets/embed.js"></script>
-
-            </div>
-        </section>
-    </div>
 
 <footer class="site-footer">
     <div class="footer-content">
@@ -272,16 +224,26 @@
     </div>
 </footer>
 
-<!-- WA flottant -->
-    <!-- WA BOX -->
-<div id="wa-box">
-        <div id="wa-chat" style="display:none;">
-            <div><br>EPILAUFIL<small>Beauté du regard à Issy</small></div>
-            <div>Bonjour ! Une question sur une prestation ou besoin d'un créneau ? C'est par ici ! 🌸</div>
-            <a href="https://wa.me/33745903838?text=Bonjour!%20Pourriez-vous%20me%20renseigner%20?" target="_blank" onclick="trackWARedirect()">Discuter sur WhatsApp</a>
-        </div>
-        <div onclick="toggleWA()" role="button" aria-label="Ouvrir le chat WhatsApp" style="cursor: pointer;">💬</div>
+<!-- Boutons Flottants Doubles Action (WhatsApp + Calendly) -->
+<div id="fixed-action-container">
+    <div id="wa-chat" style="display:none;">
+        <div class="wa-chat-header">EPILAUFIL<small>Beauté du regard à Issy</small></div>
+        <div class="wa-chat-body">Bonjour ! Une question sur une prestation ou besoin d'un créneau ? C'est par ici ! 🌸</div>
+        <a href="https://wa.me/33745903838?text=Bonjour!%20Pourriez-vous%20me%20renseigner%20?" target="_blank" onclick="trackWARedirect()">Discuter sur WhatsApp</a>
     </div>
+
+    <button class="fab-btn fab-calendar" onclick="loadCalendly(event)" aria-label="Prendre rendez-vous directement via Calendly">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-2-1.1-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/>
+        </svg>
+    </button>
+
+    <button class="fab-btn fab-whatsapp" onclick="toggleWA()" aria-label="Ouvrir le chat d'assistance WhatsApp">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.742.002-2.596-1.006-5.036-2.842-6.876C16.657 2.15 14.22 1.144 11.63 1.144c-5.442 0-9.866 4.372-9.87 9.749-.001 1.74.458 3.44 1.33 4.948l-1.005 3.674 3.75-.977zm11.233-6.903c-.294-.145-1.736-.845-2.003-.94-.266-.097-.46-.145-.653.145-.193.29-.747.94-.916 1.134-.168.193-.337.217-.63.072-.295-.145-1.243-.453-2.368-1.444-.875-.773-1.466-1.728-1.638-2.018-.172-.29-.018-.447.127-.591.13-.13.295-.337.442-.507.147-.17.195-.29.293-.483.097-.193.048-.36-.024-.507-.072-.145-.653-1.547-.894-2.127-.235-.565-.475-.489-.653-.498-.17-.008-.364-.01-.559-.01-.195 0-.514.072-.783.362-.27.29-1.028 1.015-1.028 2.475 0 1.46 1.074 2.872 1.22 3.067.148.193 2.115 3.195 5.118 4.475.715.305 1.272.488 1.708.625.718.225 1.372.193 1.89.117.577-.085 1.736-.7 1.98-1.374.243-.675.243-1.255.17-1.374-.073-.118-.266-.192-.56-.34z"/>
+        </svg>
+    </button>
+</div>
 
 <script>
 function toggleWA() {
@@ -290,25 +252,23 @@ function toggleWA() {
     
     if (isHidden) {
         chatBox.style.display = 'block';
-        // Événement d'engagement Google Analytics d'origine
         gtag('event', 'contact_whatsapp_click', {
             'event_category': 'Engagement',
             'event_label': 'Ouverture Bulle WA'
         });
-        document.getElementById('wa-box').scrollIntoView({ behavior: 'smooth', block: 'end' });
+        // Correction ici : On cible le container existant au lieu de l'ancienne box supprimée
+        document.getElementById('fixed-action-container').scrollIntoView({ behavior: 'smooth', block: 'end' });
     } else {
         chatBox.style.display = 'none';
     }
 }
 
-// Déclencheur du clic de conversion WhatsApp vers l'API interne Cloudflare
 function trackWARedirect() {
     gtag('event', 'whatsapp_conversion', {
         'event_category': 'Conversion',
         'event_label': 'Clic Lien wa.me'
     });
 
-    // Envoi de la conversion vers notre middleware (Zéro bots)
     fetch('/api/analytics', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -316,23 +276,19 @@ function trackWARedirect() {
     }).catch(() => {});
 }
 
-// Chargement complet de la page (Utilisateurs réels uniquement)
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. Envoi immédiat du signal de visite humaine à notre middleware
     fetch('/api/analytics', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ type: 'Visite', referer: document.referrer })
     }).catch(() => {});
 
-    // 2. Intersection Observer d'origine pour l'apparition des briques au scroll
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
     }, {threshold:0.1});
     document.querySelectorAll('.brique').forEach(b=>observer.observe(b));
 });
 
-// Calendly lazy load d'origine
 function loadCalendly(e){
     const btn = e.currentTarget;
     if(btn.style.opacity === "0.5") return;
