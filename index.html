@@ -275,6 +275,18 @@ function trackWARedirect() {
         body: JSON.stringify({ type: 'Clic WhatsApp', referer: document.referrer })
     }).catch(() => {});
 }
+function trackCalendlyClick() {
+    fetch('/api/analytics', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            type: 'Clic Calendly',
+            referer: document.referrer
+        }),
+        keepalive: true
+    }).catch(() => {});
+}
+
 
 document.addEventListener("DOMContentLoaded", function() {
     fetch('/api/analytics', {
@@ -297,6 +309,8 @@ function loadCalendly(e){
         'event_category': 'Conversion',
         'event_label': 'Ouverture Calendly'
     });
+
+    trackCalendlyClick();
 
     btn.style.opacity = "0.5";
     btn.style.cursor = "wait";
