@@ -105,7 +105,9 @@
         <p>Spécialiste de la <span class="highlight">beauté du regard</span>, Epilaufil sublime vos sourcils.</p>
         <p>Situé à Issy-les-Moulineaux, Epilaufil est spécialisé dans l'épilation au fil du visage. Que vous souhaitiez <a href="#nettoyage">nettoyer</a> ou <a href="#transformation">restructurer</a> des sourcils, je sublime naturellement votre regard.</p>
         <p>Je vous propose également mes services pour une pédicure si vous souhaitez.</p>
-        <p>N'hésitez pas à me contacter ou <a href="#rdv">prendre rendez-vous</a> !</p>
+        <!--    <p>N'hésitez pas à me contacter ou <a href="#rdv">prendre rendez-vous</a> !</p>
+         -->
+        <p>N'hésitez pas à me contacter pour prendre rendez-vous !</p>
         <p>A bientôt !</p>
     </section>
 
@@ -167,17 +169,17 @@
             </div>
         </div>
     </section>
-
+<!-- 
     <section id="rdv" class="brique">
         <h2>Rendez-vous</h2>
         <div style="text-align:center;">
           <a href="javascript:void(0);" onclick="loadCalendly(event)" class="cta-button">Prendre Rendez-vous</a>
         </div>
-    </section>
+    </section>-->
 
     <section id="contact" class="brique brique-large">
         <h2>Me Contacter</h2>
-        <p>Vous pouvez m'envoyer un message directement sur WhatsApp ou un mail depuis le formulaire ci-dessous.</p>
+        <p>Vous pouvez m'envoyer un message directement sur WhatsApp ou depuis le formulaire ci-dessous.</p>
         
         <div class="contact-wrapper">
             <div class="contact-action-box">
@@ -214,8 +216,9 @@
         <div class="footer-links">
             <a href="#accueil">Accueil</a>
             <a href="#tarifs">Tarifs</a>
-            <a href="#rdv">Rendez-vous</a>
-            <a href="#contact">Discutons</a>
+         <!--   <a href="#rdv">Rendez-vous</a>
+            <a href="#contact">Discutons</a>-->
+            <a href="https://wa.me/33745903838?text=Bonjour!%20Pourriez-vous%20me%20renseigner%20?" target="_blank" onclick="trackWARedirect()">Discutons</a>
         </div>
         
         <div class="footer-copyright">
@@ -231,7 +234,7 @@
         <div class="wa-chat-body">Bonjour ! Une question sur une prestation ou besoin d'un créneau ? C'est par ici ! 🌸</div>
         <a href="https://wa.me/33745903838?text=Bonjour!%20Pourriez-vous%20me%20renseigner%20?" target="_blank" onclick="trackWARedirect()">Discuter sur WhatsApp</a>
     </div>
-
+<!-- 
     <button class="fab-btn calendar-btn" onclick="loadCalendly(event)" aria-label="Prendre rendez-vous directement via Calendly">
         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
             <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-2-1.1-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/>
@@ -243,7 +246,12 @@
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.742.002-2.596-1.006-5.036-2.842-6.876C16.657 2.15 14.22 1.144 11.63 1.144c-5.442 0-9.866 4.372-9.87 9.749-.001 1.74.458 3.44 1.33 4.948l-1.005 3.674 3.75-.977zm11.233-6.903c-.294-.145-1.736-.845-2.003-.94-.266-.097-.46-.145-.653.145-.193.29-.747.94-.916 1.134-.168.193-.337.217-.63.072-.295-.145-1.243-.453-2.368-1.444-.875-.773-1.466-1.728-1.638-2.018-.172-.29-.018-.447.127-.591.13-.13.295-.337.442-.507.147-.17.195-.29.293-.483.097-.193.048-.36-.024-.507-.072-.145-.653-1.547-.894-2.127-.235-.565-.475-.489-.653-.498-.17-.008-.364-.01-.559-.01-.195 0-.514.072-.783.362-.27.29-1.028 1.015-1.028 2.475 0 1.46 1.074 2.872 1.22 3.067.148.193 2.115 3.195 5.118 4.475.715.305 1.272.488 1.708.625.718.225 1.372.193 1.89.117.577-.085 1.736-.7 1.98-1.374.243-.675.243-1.255.17-1.374-.073-.118-.266-.192-.56-.34z"/>
         </svg>
     </button>
-</div>
+-->
+    <button class="fab-btn whatsapp-btn" onclick="toggleWA()" aria-label="Ouvrir le chat d'assistance WhatsApp">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zM12.04 20.1c-1.43 0-2.83-.39-4.04-1.13l-.29-.17-3.03.79.81-2.95-.19-.31C4.6 14.78 4.14 13.38 4.14 11.91c0-4.36 3.55-7.91 7.9-7.91 2.11 0 4.1.82 5.6 2.32 1.5 1.5 2.33 3.49 2.33 5.6 0 4.36-3.55 7.91-7.93 7.91zm4.33-5.91c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.63-1.19-1.4-1.33-1.64-.14-.24-.01-.37.1-.49.1-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.74-1.79-.2-.47-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.31.98 2.47c.12.16 1.7 2.6 4.12 3.65.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/>
+        </svg>
+    </button>
 
 <script>
 function toggleWA() {
@@ -275,6 +283,7 @@ function trackWARedirect() {
         body: JSON.stringify({ type: 'Clic WhatsApp', referer: document.referrer })
     }).catch(() => {});
 }
+/*
 function trackCalendlyClick() {
     fetch('/api/analytics', {
         method: 'POST',
@@ -286,7 +295,7 @@ function trackCalendlyClick() {
         keepalive: true
     }).catch(() => {});
 }
-
+*/
 
 document.addEventListener("DOMContentLoaded", function() {
     fetch('/api/analytics', {
@@ -300,7 +309,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }, {threshold:0.1});
     document.querySelectorAll('.brique').forEach(b=>observer.observe(b));
 });
-
+/*
 function loadCalendly(e){
     const btn = e.currentTarget;
     if(btn.style.opacity === "0.5") return;
@@ -341,6 +350,7 @@ function loadCalendly(e){
         openWidget();
     }
 }
+*/
 </script>
 </body>
 </html>
